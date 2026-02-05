@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#   http://www.apache.org/licenses/LICENSE-2.0
+#   https://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -35,7 +35,7 @@ except ImportError:
 import jax
 import jax.numpy as jnp
 import numpy as np
-from jax.interpreters import batching
+from jax._src.interpreters import batching
 
 try:
   from tqdm import tqdm
@@ -49,7 +49,6 @@ __all__ = [
     "default_progress_fn",
     "tqdm_progress_fn",
     "batched_vmap",
-    "is_scalar",
 ]
 
 IOStatus = Tuple[np.ndarray, np.ndarray, np.ndarray, NamedTuple]
@@ -435,13 +434,3 @@ def _batched_map(
   batched_fun = _apply_scan(fun, in_axes=in_axes)
 
   return wrapper
-
-
-# TODO(michalk8): remove when `jax>=0.4.31`
-def is_scalar(x: Any) -> bool:  # noqa: D103
-  if (
-      isinstance(x, (np.ndarray, jax.Array)) or hasattr(x, "__jax_array__") or
-      np.isscalar(x)
-  ):
-    return jnp.asarray(x).ndim == 0
-  return False

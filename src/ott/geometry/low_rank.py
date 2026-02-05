@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#   http://www.apache.org/licenses/LICENSE-2.0
+#   https://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -112,7 +112,7 @@ class LRCGeometry(geometry.Geometry):
       return 1.0 / (mean + self._bias)
     if self._scale_cost == "max_cost":
       return 1.0 / self._max_cost_matrix
-    if utils.is_scalar(self._scale_cost):
+    if jnp.isscalar(self._scale_cost):
       return 1.0 / self._scale_cost
     raise ValueError(f"Scaling {self._scale_cost} not implemented.")
 

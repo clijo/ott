@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#   http://www.apache.org/licenses/LICENSE-2.0
+#   https://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -132,6 +132,7 @@ spelling_filters = [
 # linkcheck
 linkcheck_ignore = [
     # 403 Client Error
+    "https://doi.org/10.1561/2200000073",
     "https://doi.org/10.1089/cmb.2021.0446",
     "https://www.jstor.org/stable/3647580",
     "https://doi.org/10.1137/19M1301047",
